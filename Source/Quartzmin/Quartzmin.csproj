@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;netcoreapp3.1;net452</TargetFrameworks>
+		<TargetFrameworks>net5.0</TargetFrameworks>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
 		<GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -46,16 +46,13 @@
 
 	<ItemGroup>
 		<PackageReference Include="Handlebars.Net" Version="1.9.5" />
-		<PackageReference Include="JsonSubTypes" Version="1.5.1" />
-		<PackageReference Include="Quartz" Version="3.0.7" />
+		<PackageReference Include="JsonSubTypes" Version="1.8.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Owin" Version="5.0.6" />
+		<PackageReference Include="Quartz" Version="3.3.2" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(DefineConstants.Contains('NETFRAMEWORK'))">
-		<Reference Include="System.Web" />
-		<Reference Include="System.ComponentModel.DataAnnotations" />
-		<PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.6" />
-		<PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.6" />
-		<PackageReference Include="Microsoft.Owin.StaticFiles" Version="2.1.0" />
+		<PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.7" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(DefineConstants.Contains('NETSTANDARD'))">
@@ -70,10 +67,10 @@
 
 	<ItemGroup Condition="$(DefineConstants.Contains('NETCOREAPP'))">
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
-		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.1.0" />
-		<PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="3.1.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.6" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="5.0.6" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="5.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -93,6 +90,10 @@
 		<EmbeddedResource Include="Views\**" />
 		<EmbeddedResource Include="TypeHandlers\*.hbs" />
 		<EmbeddedResource Include="TypeHandlers\*.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Owin\" />
 	</ItemGroup>
 
 </Project>

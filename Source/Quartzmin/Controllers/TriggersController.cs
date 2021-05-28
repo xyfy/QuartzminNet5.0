@@ -8,15 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-#region Target-Specific Directives
-#if ( NETSTANDARD || NETCOREAPP )
 using Microsoft.AspNetCore.Mvc;
-#endif
-#if NETFRAMEWORK
-using System.Web.Http;
-using IActionResult = System.Web.Http.IHttpActionResult;
-#endif
-#endregion
 
 namespace Quartzmin.Controllers
 {
