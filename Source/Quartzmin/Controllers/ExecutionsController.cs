@@ -1,12 +1,7 @@
-﻿using Quartz;
-using Quartzmin.Helpers;
-using Quartzmin.Models;
-using Quartz.Plugins.RecentHistory;
-using Quartz.Impl.Matchers;
+﻿using Quartzmin.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 
 

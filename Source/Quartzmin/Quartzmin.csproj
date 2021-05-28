@@ -29,17 +29,6 @@
 		<PackageIcon>logo.png</PackageIcon>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^net\d'))">
-		<DefineConstants>NETFRAMEWORK</DefineConstants>
-		<AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
-	</PropertyGroup>
-	<PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^netstandard\d'))">
-		<DefineConstants>NETSTANDARD</DefineConstants>
-	</PropertyGroup>
-	<PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^netcoreapp\d'))">
-		<DefineConstants>NETCOREAPP</DefineConstants>
-	</PropertyGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\Quartz.Plugins.RecentHistory\Quartz.Plugins.RecentHistory.csproj" />
 	</ItemGroup>
@@ -47,25 +36,7 @@
 	<ItemGroup>
 		<PackageReference Include="Handlebars.Net" Version="1.9.5" />
 		<PackageReference Include="JsonSubTypes" Version="1.8.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Owin" Version="5.0.6" />
 		<PackageReference Include="Quartz" Version="3.3.2" />
-	</ItemGroup>
-
-	<ItemGroup Condition="$(DefineConstants.Contains('NETFRAMEWORK'))">
-		<PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.7" />
-	</ItemGroup>
-
-	<ItemGroup Condition="$(DefineConstants.Contains('NETSTANDARD'))">
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.DataAnnotations" Version="2.1.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.1.0" />
-		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.1.0" />
-		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.1.0" />
-		<PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="2.1.0" />
-	</ItemGroup>
-
-	<ItemGroup Condition="$(DefineConstants.Contains('NETCOREAPP'))">
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.6" />

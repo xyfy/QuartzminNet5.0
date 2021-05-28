@@ -1,9 +1,5 @@
-﻿#if ( NETSTANDARD || NETCOREAPP )
-
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using System;
@@ -27,21 +23,11 @@ namespace Quartzmin
                  context.Items[typeof( Services )] = services;
                  await next.Invoke();
              } );
-
        
-#if NETCOREAPP
             app.UseEndpoints( endpoints =>
             {
                 endpoints.MapControllerRoute( nameof( Quartzmin ), $"{options.VirtualPathRoot}/{{controller=Scheduler}}/{{action=Index}}" );
             } );
-#else
-            app.UseMvc( routes =>
-            {
-                routes.MapRoute(
-                    name: nameof( Quartzmin ),
-                    template: "{controller=Scheduler}/{action=Index}" );
-            } );
-#endif
         }
 
         private static void UseFileServer( this IApplicationBuilder app, QuartzminOptions options )
@@ -63,23 +49,11 @@ namespace Quartzmin
             app.UseFileServer( fsOptions );
         }
 
-#if NETCOREAPP
         public static void AddQuartzmin( this IServiceCollection services )
         {
             services.AddControllers()
                 .AddApplicationPart( Assembly.GetExecutingAssembly() )
                 .AddNewtonsoftJson();
         }
-#else
-        public static void AddQuartzmin( this IServiceCollection services )
-        {
-            services.AddMvcCore()
-                .AddApplicationPart( Assembly.GetExecutingAssembly() )
-                .AddJsonFormatters();
-        }
-#endif
-
     }
 }
-
-#endif

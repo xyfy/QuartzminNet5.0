@@ -1,18 +1,15 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Text.RegularExpressions;
-using System.Resources;
 using System.Globalization;
 
 namespace CronExpressionDescriptor
 {
-  /// <summary>
-  /// Converts a Cron Expression into a human readable string
-  /// </summary>
-  public class ExpressionDescriptor
+    /// <summary>
+    /// Converts a Cron Expression into a human readable string
+    /// </summary>
+    public class ExpressionDescriptor
   {
     private readonly char[] m_specialCharacters = new char[] { '/', '-', ',', '*' };
     private readonly string[] m_24hourTimeFormatTwoLetterISOLanguageName = new string[] { "ru", "uk", "de", "it", "tr", "pl", "ro", "da", "sl" };

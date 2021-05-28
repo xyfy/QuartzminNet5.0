@@ -1,6 +1,4 @@
-﻿#if NETCOREAPP
-using System;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace Quartzmin.Helpers
 {
@@ -12,4 +10,3 @@ namespace Quartzmin.Helpers
         }
     }
 }
-#endif

@@ -1,7 +1,4 @@
-﻿using System.Globalization;
-using System.Threading;
-
-namespace CronExpressionDescriptor
+﻿namespace CronExpressionDescriptor
 {
     /// <summary>
     /// Options for parsing and describing a Cron Expression

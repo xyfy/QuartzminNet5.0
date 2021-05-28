@@ -91,10 +91,6 @@ namespace Quartzmin.Controllers
 
         public IActionResult TextFile(string content, string contentType, DateTime lastModified, string etag)
         {
-#if NETSTANDARD
-            Response.Headers.Add("Last-Modified", lastModified.ToUniversalTime().ToString("R"));
-            Response.Headers.Add("ETag", etag);
-#endif
             return new ContentResult()
             {
                 Content = content,
