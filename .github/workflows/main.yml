@@ -14,6 +14,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Git Semantic Version
+        uses: PaulHatch/semantic-version@v4.0.2
+        with:
+          tag_prefix: "v"
+          major_pattern: "(MAJOR)"
+          minor_pattern: "(MINOR)"
+          format: "${major}.${minor}.${patch}-prerelease${increment}"
+          change_path: "Sources/"
+          short_tags: true
+          bump_each_commit: false      
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '5.x'
