@@ -194,12 +194,20 @@ namespace Quartzmin.Controllers
         [HttpGet, JsonErrorResponse]
         public async Task<IActionResult> AdditionalData()
         {
-            var keys = await Scheduler.GetJobKeys(GroupMatcher<JobKey>.AnyGroup());
-            var history = await Scheduler.Context.GetExecutionHistoryStore().FilterLastOfEveryJob(10);
+            var store = Scheduler.Context.GetExecutionHistoryStore();
+
+            var list = store is null ? new List<object>() : await GetHistoryAsync(store);
+
+            return View(list);
+        }
+
+        private async Task<List<object>> GetHistoryAsync(IExecutionHistoryStore store)
+        {
+            var history = await store.FilterLastOfEveryJob(10);
             var historyByJob = history.ToLookup(x => x.Job);
 
             var list = new List<object>();
-            foreach (var key in keys)
+            foreach (var key in await Scheduler.GetJobKeys(GroupMatcher<JobKey>.AnyGroup()))
             {
                 var triggers = await Scheduler.GetTriggersOfJob(key);
 
@@ -207,13 +215,14 @@ namespace Quartzmin.Controllers
 
                 list.Add(new
                 {
-                    JobName = key.Name, key.Group,
+                    JobName = key.Name,
+                    key.Group,
                     History = historyByJob.TryGet(key.ToString()).ToHistogram(),
                     NextFireTime = nextFires.Where(x => x != null).OrderBy(x => x).FirstOrDefault()?.ToDefaultFormat(),
                 });
             }
 
-            return View(list);
+            return list;
         }
 
         [HttpGet]
