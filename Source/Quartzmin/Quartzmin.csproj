@@ -8,25 +8,12 @@
 		<NoWarn>1591</NoWarn>
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 
-		<Version>1.0.0</Version>
 		<Product>Quartzmin</Product>
 		<Title>Web management tool for Quartz.NET</Title>
-		<Authors>Jan Lucansky</Authors>
-		<PackageProjectUrl>https://github.com/evgenykorolyuk/QuartzminNet5.0</PackageProjectUrl>
-		<PackageIconUrl></PackageIconUrl>
-		<Description>Powerful, easy to use web management tool for Quartz.NET</Description>
-		<PackageTags>quartz;web;ui</PackageTags>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.0</FileVersion>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<Copyright>Copyright © 2020 Jan Lucansky</Copyright>
-		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/evgenykorolyuk/QuartzminNet5.0</RepositoryUrl>
 		<EmbeddedResourceUseDependentUponConvention>false</EmbeddedResourceUseDependentUponConvention>
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageId>QuartzminFork</PackageId>
-		<PackageIcon>logo.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
