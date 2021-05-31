@@ -8,11 +8,11 @@
 		<NoWarn>1591</NoWarn>
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 
-		<Version>1.0.5</Version>
+		<Version>1.0.0</Version>
 		<Product>Quartzmin</Product>
 		<Title>Web management tool for Quartz.NET</Title>
 		<Authors>Jan Lucansky</Authors>
-		<PackageProjectUrl>https://github.com/jlucansky/Quartzmin</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/evgenykorolyuk/QuartzminNet5.0</PackageProjectUrl>
 		<PackageIconUrl></PackageIconUrl>
 		<Description>Powerful, easy to use web management tool for Quartz.NET</Description>
 		<PackageTags>quartz;web;ui</PackageTags>
@@ -21,7 +21,7 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<Copyright>Copyright © 2020 Jan Lucansky</Copyright>
 		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/jlucansky/Quartzmin</RepositoryUrl>
+		<RepositoryUrl>https://github.com/evgenykorolyuk/QuartzminNet5.0</RepositoryUrl>
 		<EmbeddedResourceUseDependentUponConvention>false</EmbeddedResourceUseDependentUponConvention>
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -53,18 +53,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="*.vspscc" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<EmbeddedResource Include="Content\**" />
 		<EmbeddedResource Include="Views\**" />
 		<EmbeddedResource Include="TypeHandlers\*.hbs" />
 		<EmbeddedResource Include="TypeHandlers\*.js" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Owin\" />
 	</ItemGroup>
 
 </Project>
