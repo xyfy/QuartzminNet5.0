@@ -4,11 +4,10 @@
 
 ---
 
-[![NuGet](https://img.shields.io/nuget/v/QuartzminFork.svg)](https://www.nuget.org/packages/QuartzminFork)
+[![NuGet](https://img.shields.io/nuget/v/QuartzminFork.svg)](https://www.nuget.org/packages/Yungc.Abp.Quartzmin)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-QuartzminFork is  fork from Quartzmin!
-
+Yungc.Abp.Quartzmin is  fork from QuartzminFork! It's adujst for [aspnetboilerplate](https://aspnetboilerplate.com/)
 
 Quartzmin is powerful, easy to use web management tool for Quartz.NET
 
@@ -41,9 +40,9 @@ Quartzmin was created with **Semantic UI** and **Handlebars.Net** as the templat
 ## Install
 Quartzmin is available on [nuget.org](https://www.nuget.org/packages/QuartzminFork)
 
-To install QuartzminFork, run the following command in the Package Manager Console
+To install Yungc.Abp.Quartzmin, run the following command in the Package Manager Console
 ```powershell
-PM> Install-Package QuartzminFork
+PM> Install-Package Yungc.Abp.Quartzmin
 ```
 ## Minimum requirements
 - .NET Framework 4.5.2 
@@ -73,10 +72,6 @@ Add to your `App.config` file:
   </quartz>
 </configuration>
 ```
-Start Quartz.NET scheduler somewhere:
-```csharp
-StdSchedulerFactory.GetDefaultScheduler().Result.Start();
-```
 
 ### OWIN middleware
 Add to your `Startup.cs` file:
@@ -98,14 +93,22 @@ public void ConfigureServices(IServiceCollection services)
     services.AddQuartzmin();
 }
 
-public void Configure(IApplicationBuilder app)
+public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 {
-    app.UseQuartzmin(new QuartzminOptions()
-    {
-        Scheduler = StdSchedulerFactory.GetDefaultScheduler().Result
-    });
+  var cfg = IocManager.Instance.Resolve<IAbpQuartzConfiguration>();
+
+  app.UseQuartzmin(new QuartzminOptions()
+  {
+      VirtualPathRoot = "/test",
+      Scheduler = cfg.Scheduler
+  });
+
 }
 ```
+
+Create job see [creating-jobs](https://aspnetboilerplate.com/Pages/Documents/Quartz-Integration#creating-jobs)
+
+Schedule Job see [schedule-jobs](https://aspnetboilerplate.com/Pages/Documents/Quartz-Integration#schedule-jobs)
 
 ## Notes
 In clustered environment, it make more sense to host Quarzmin on single dedicated Quartz.NET node in standby mode and implement own `IExecutionHistoryStore` depending on database or ORM framework you typically incorporate. Every clustered Quarz.NET node should be configured with `ExecutionHistoryPlugin` and only dedicated node for management may have `QuartzminPlugin`.
