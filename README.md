@@ -1,6 +1,4 @@
-<p align="center">
-    <img src="https://raw.githubusercontent.com/jlucansky/public-assets/master/Quartzmin/logo.png" height="150">
-</p>
+![](https://raw.githubusercontent.com/jlucansky/public-assets/master/Quartzmin/logo.png)
 
 ---
 
