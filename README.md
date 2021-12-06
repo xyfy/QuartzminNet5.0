@@ -43,8 +43,7 @@ To install Yungc.Abp.Quartzmin, run the following command in the Package Manager
 PM> Install-Package Yungc.Abp.Quartzmin
 ```
 ## Minimum requirements
-- .NET Framework 4.5.2 
-- .NET Standard 2.0
+- .NET 5.0
 
 ## Usage
 ### Embedded web server
