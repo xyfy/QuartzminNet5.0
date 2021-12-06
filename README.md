@@ -4,7 +4,7 @@
 
 ---
 
-[![NuGet](https://img.shields.io/nuget/v/QuartzminFork.svg)](https://www.nuget.org/packages/Yungc.Abp.Quartzmin)
+[![NuGet](https://img.shields.io/nuget/v/Yungc.Abp.Quartzmin.svg)](https://www.nuget.org/packages/Yungc.Abp.Quartzmin)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Yungc.Abp.Quartzmin is  fork from QuartzminFork! It's adujst for [aspnetboilerplate](https://aspnetboilerplate.com/)
