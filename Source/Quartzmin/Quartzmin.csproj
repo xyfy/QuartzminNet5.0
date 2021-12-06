@@ -8,12 +8,18 @@
 		<NoWarn>1591</NoWarn>
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 
-		<Product>Quartzmin</Product>
+		<Product>Abp.Quartzmin</Product>
 		<Title>Web management tool for Quartz.NET</Title>
-		<RepositoryUrl>https://github.com/evgenykorolyuk/QuartzminNet5.0</RepositoryUrl>
+		<RepositoryUrl>https://github.com/xyfy/QuartzminNet5.0</RepositoryUrl>
 		<EmbeddedResourceUseDependentUponConvention>false</EmbeddedResourceUseDependentUponConvention>
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>Yungc.Abp.Quartzmin</PackageId>
+		<Company>Yungc</Company>
+		<Description>Quartzmin的Abp模块化</Description>
+		<PackageProjectUrl>https://github.com/xyfy/QuartzminNet5.0</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<Authors>Yungc</Authors>
 	</PropertyGroup>
 
 	<ItemGroup>
