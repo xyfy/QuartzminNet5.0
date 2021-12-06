@@ -36,7 +36,7 @@ jobs:
       - name: dotnet build
         run: dotnet build Quartzmin.sln /p:AssemblyVersion=${{steps.version-step.outputs.major}}.${{steps.version-step.outputs.minor}}.0.${{steps.version-step.outputs.patch}} /p:Version=${{steps.version-step.outputs.major}}.${{steps.version-step.outputs.minor}}.0.${{steps.version-step.outputs.patch}}
         
-      - name: Save Quartzmin NuGet Package
+      - name: Save Yungc.Abp.Quartzmin NuGet Package
         uses: actions/upload-artifact@v2
         with:
-          path: Source/Quartzmin/bin/Debug/Quartzmin.${{steps.version-step.outputs.major}}.${{steps.version-step.outputs.minor}}.0.${{steps.version-step.outputs.patch}}.nupkg
+          path: Source/Quartzmin/bin/Debug/Yungc.Abp.Quartzmin.${{steps.version-step.outputs.major}}.${{steps.version-step.outputs.minor}}.0.${{steps.version-step.outputs.patch}}.nupkg
