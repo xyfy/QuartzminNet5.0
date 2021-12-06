@@ -86,6 +86,11 @@ public void Configuration(IAppBuilder app)
 ### ASP.NET Core middleware
 Add to your `Startup.cs` file:
 ```csharp
+// add  DependsOn to module
+    [DependsOn(
+       typeof(Quartzmin.AbpQuartzminModule))]
+
+
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddQuartzmin();
